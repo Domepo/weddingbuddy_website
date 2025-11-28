@@ -31,42 +31,32 @@ const galleryFlow = [
 const tabs = [
   {
     name: 'Home (Galerie)',
-    description:
-      'Deine Pose-Bibliothek mit Fortschrittsanzeige, Shuffle, Reorder und Add – optimiert für schnelles Browsen.',
-    highlights: [
-      'Suchfeld + Filterchips + Bulk-Bar bei Mehrfachauswahl',
-      '2-Spalten-Grid mit Favoritenstern & Kategorie-Badges',
-      'Done-Overlay, Drag-Handle im Reorder-Modus',
+    points: [
+      'Header mit Fortschritt (z. B. 5/9 done) und Aktionen: Shuffle, Reorder, Add.',
+      'Suchfeld, Filterchips und Bulk-Bar bei Mehrfachauswahl.',
+      '2-Spalten-Gitter mit Thumbnails, Favoritenstern, Kategorien-Badge und Done-Overlay.',
     ],
   },
   {
     name: 'Camera (Overlay)',
-    description:
-      'Fullscreen-Kamera mit Pose-Overlay, das du spiegeln, drehen oder per Swipe in der Opazität anpassen kannst.',
-    highlights: [
-      'Swipe-Navigation links/rechts + Previous/Next Buttons',
-      'Overlay-Card für Notizen & Kamera-Settings',
-      'Wetter-Widget: Temperatur, Sunrise/Sunset, Golden Hour',
+    points: [
+      'Fullscreen-Kamera mit wischbarer Pose-Navigation (links/rechts).',
+      'Overlay-Card für Notizen & Kamera-Settings, Grid und Mirror-Buttons.',
+      'Wetter-Widget mit Temperatur, Sunrise/Sunset und Golden Hour.',
     ],
   },
   {
     name: 'Tools',
-    description:
-      'Praktische Helfer für den Shooting-Tag – vom Gear-Check bis zur Timeline, damit nichts vergessen wird.',
-    highlights: [
-      'Batterie-, Gear- und Timeline-Übersichten',
-      'Kleine Utilities, die den Ablauf strukturieren',
-      'Kontextbezogene Shortcuts für den Workflow',
+    points: [
+      'Batterie-, Gear- und Timeline-Helfer für stressfreie Shootings.',
+      'Sammlung kleiner Utilities, die den Shooting-Tag vorbereiten.',
     ],
   },
   {
     name: 'Settings',
-    description:
-      'Feineinstellungen für Look & Feel sowie Datensicherheit – alles, was die App persönlich macht.',
-    highlights: [
-      'Theme: Light/Dark, Overlay-Opacity & Kamera-Defaults',
-      'Sprache EN/DE, Archiv- und Daten-Reset-Optionen',
-      'Wetter-Widget & Grid als Standard speichern',
+    points: [
+      'Theme (Light/Dark), Overlay-Opacity, Kamera-Defaults (Zoom, Grid, Weather).',
+      'Sprache EN/DE, Daten-Reset, Archiv-Verwaltung.',
     ],
   },
 ];
@@ -139,9 +129,7 @@ function App() {
               </div>
               <div className="flex flex-wrap gap-3">
                 <button className="button-primary">Demo anfragen</button>
-                <a className="button-secondary" href="#features">
-                  Feature-Übersicht
-                </a>
+                <button className="button-secondary">Feature-Übersicht</button>
               </div>
               <div className="grid grid-cols-2 gap-4 text-left max-w-xl">
                 <div className="glass-card p-4 rounded-2xl">
@@ -203,7 +191,7 @@ function App() {
       </header>
 
       <main className="max-w-6xl mx-auto px-4 sm:px-8 py-16 space-y-24">
-        <section id="features" className="space-y-8">
+        <section className="space-y-8">
           <div className="flex flex-col gap-3">
             <p className="text-sm uppercase tracking-[0.3em] text-slate-300">Warum WeddingPoses?</p>
             <h3 className="text-3xl sm:text-4xl font-bold">Alle Pose-Referenzen, live nutzbar in deiner Kamera.</h3>
@@ -299,17 +287,11 @@ function App() {
                   <span className="h-10 w-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-lg">✨</span>
                   <h4 className="text-xl font-semibold">{tab.name}</h4>
                 </div>
-                <p className="text-slate-200 leading-relaxed">{tab.description}</p>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {tab.highlights.map((point) => (
-                    <div
-                      key={point}
-                      className="rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-slate-100 shadow-inner"
-                    >
-                      {point}
-                    </div>
+                <ul className="space-y-3 text-slate-200 list-disc list-inside">
+                  {tab.points.map((point) => (
+                    <li key={point}>{point}</li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
           </div>
@@ -394,127 +376,6 @@ function App() {
               <p className="text-xs text-white/80 mt-4">Durchdachte Gestensteuerung, native iOS Tab-Bar und langlebige Offline-Daten per AsyncStorage.</p>
             </div>
           </div>
-        </section>
-
-        <section id="impressum" className="glass-card rounded-3xl p-8 border border-white/10 space-y-4">
-          <div className="space-y-2">
-            <p className="text-sm uppercase tracking-[0.25em] text-slate-300">Impressum</p>
-            <h3 className="text-2xl font-bold">Verantwortlich für WeddingBuddy</h3>
-          </div>
-          <p className="text-slate-200">Dominik Teichröb / Harterschnitt</p>
-          <p className="text-slate-200">E-Mail: harterschnitt@gmail.de</p>
-          <p className="text-sm text-slate-300">Dies ist eine Informationsseite für die WeddingBuddy / WeddingPoses App.</p>
-        </section>
-
-        <section id="datenschutz" className="glass-card rounded-3xl p-8 border border-white/10 space-y-6">
-          <div className="space-y-2">
-            <p className="text-sm uppercase tracking-[0.25em] text-slate-300">Datenschutz</p>
-            <h3 className="text-2xl font-bold">Datenschutzerklärung für die WeddingBuddy App</h3>
-            <p className="text-slate-300 text-sm">Letzte Aktualisierung: 28.11.2025</p>
-          </div>
-          <div className="space-y-4 text-slate-200 leading-relaxed">
-            <p>Diese Datenschutzerklärung informiert dich darüber, wie personenbezogene Daten innerhalb der mobilen Anwendung verarbeitet werden. Der Schutz deiner Daten ist uns wichtig. Wir verarbeiten personenbezogene Daten ausschließlich gemäß der Datenschutz-Grundverordnung (DSGVO).</p>
-            <div className="space-y-2">
-              <h4 className="font-semibold text-white">1. Verantwortlicher</h4>
-              <p>Dominik Teichröb / Harterschnitt<br />E-Mail: harterschnitt@gmail.de</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-semibold text-white">2. Art der verarbeiteten Daten</h4>
-              <p className="font-semibold">2.1. Nutzereigene Bilder</p>
-              <ul className="list-disc list-inside space-y-1 text-slate-200">
-                <li>Bilder, die der Nutzer selbst manuell importiert</li>
-                <li>Bilder, die der Nutzer als Overlay verwendet</li>
-              </ul>
-              <p>Diese Bilder werden ausschließlich lokal auf dem Gerät des Nutzers verarbeitet und nicht gespeichert, nicht hochgeladen, nicht geteilt und nicht an Dritte weitergegeben.</p>
-              <p className="font-semibold">2.2. Pinterest-Daten (nur wenn der Nutzer Pinterest verknüpft)</p>
-              <ul className="list-disc list-inside space-y-1 text-slate-200">
-                <li>Pinterest-Zugriffstoken</li>
-                <li>Boards und Pins des Nutzers</li>
-                <li>Pin-Bild URLs</li>
-              </ul>
-              <p>Diese Daten werden nur zum Abruf der eigenen Pins des Nutzers verwendet und nicht gespeichert. Die Daten werden nicht mit anderen Diensten kombiniert, nicht analysiert, und nicht weitergegeben. Die Verbindung erfolgt über die offiziell bereitgestellte API von Pinterest.</p>
-              <p className="font-semibold">2.3. Geräteberechtigungen</p>
-              <ul className="list-disc list-inside space-y-1 text-slate-200">
-                <li>Kamera: Wird benötigt, um das Overlay-Bild über der Kamera anzuzeigen.</li>
-                <li>Fotos/Bibliothek: Wird benötigt, um eigene Bilder auszuwählen.</li>
-              </ul>
-              <p>Keine Kamera- oder Fotodaten werden gespeichert oder an Server übertragen.</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-semibold text-white">3. Zweck der Verarbeitung</h4>
-              <p>Wir verarbeiten personenbezogene Daten ausschließlich zur Bereitstellung folgender Funktionen:</p>
-              <ul className="list-disc list-inside space-y-1 text-slate-200">
-                <li>Import eigener Bilder als Overlay</li>
-                <li>Anzeigen eigener Pinterest-Pins als Overlay (optional)</li>
-                <li>Nutzung der Kamera in Kombination mit einem Inspirationsbild</li>
-                <li>Anpassung von Transparenz/Position des Overlays</li>
-                <li>Optimale Nutzung der App-Funktionen</li>
-              </ul>
-              <p>Eine darüber hinausgehende Verarbeitung findet nicht statt.</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-semibold text-white">4. Keine Speicherung, kein Tracking, keine Werbung</h4>
-              <p>Wir speichern keine personenbezogenen Daten auf unseren Servern. Wir nutzen keine Cookies, kein Tracking, kein Analytics. Wir zeigen keine Werbung. Es erfolgt keine Profilbildung. Alles, was die App verarbeitet, bleibt zu 100 % lokal auf dem Gerät.</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-semibold text-white">5. Weitergabe von Daten</h4>
-              <p>Es erfolgt keine Weitergabe personenbezogener Daten an Pinterest (außer der Nutzer loggt sich freiwillig ein), Dritte, Tracking-Dienste, Werbepartner oder Server von uns. Wenn der Nutzer Pinterest verbindet, erfolgt die Datenverarbeitung ausschließlich im Rahmen der Pinterest-API. Wir erhalten keine Pinterest-Passwörter.</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-semibold text-white">6. Pinterest Integration</h4>
-              <p>Falls der Nutzer Pinterest nutzt:</p>
-              <ul className="list-disc list-inside space-y-1 text-slate-200">
-                <li>Die Nutzung erfolgt über Pinterest OAuth</li>
-                <li>Wir erhalten nur ein temporäres Token, um Pins des Nutzers live abzurufen</li>
-                <li>Wir speichern keinerlei Pinterest-Daten</li>
-                <li>Wir exportieren oder veröffentlichen keine Pinterest-Inhalte</li>
-                <li>Bilder werden niemals verändert oder gespeichert</li>
-                <li>Der Nutzer kann die Verbindung jederzeit in Pinterest widerrufen.</li>
-              </ul>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-semibold text-white">7. Rechtsgrundlage (DSGVO)</h4>
-              <ul className="list-disc list-inside space-y-1 text-slate-200">
-                <li>Art. 6 Abs. 1 lit. a DSGVO – Einwilligung (Pinterest-Login)</li>
-                <li>Art. 6 Abs. 1 lit. b DSGVO – Vertragserfüllung (Bereitstellung der App-Funktionen)</li>
-                <li>Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse (Betrieb der App)</li>
-              </ul>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-semibold text-white">8. Speicherdauer</h4>
-              <p>Wir speichern nichts. Alles verbleibt ausschließlich lokal auf dem Gerät des Nutzers. Pinterest-Zugriffstoken werden nicht dauerhaft gespeichert und können jederzeit gelöscht werden.</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-semibold text-white">9. Rechte der Nutzer</h4>
-              <p>Du hast jederzeit folgende Rechte:</p>
-              <ul className="list-disc list-inside space-y-1 text-slate-200">
-                <li>Recht auf Auskunft</li>
-                <li>Recht auf Berichtigung</li>
-                <li>Recht auf Löschung</li>
-                <li>Recht auf Einschränkung</li>
-                <li>Recht auf Widerspruch</li>
-                <li>Recht auf Datenübertragbarkeit</li>
-                <li>Recht, erteilte Einwilligungen zu widerrufen</li>
-              </ul>
-              <p>Hierzu genügt eine E-Mail an: harterschnitt@gmail.com</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-semibold text-white">10. Änderungen dieser Datenschutzerklärung</h4>
-              <p>Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren. Die aktuelle Version ist jederzeit in der App verfügbar.</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-semibold text-white">11. Kontakt</h4>
-              <p>Bei Fragen zur Verarbeitung deiner Daten:<br />Dominik Teichröb / Harterschnitt<br />E-Mail: harterschnitt@gmail.com</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="agb" className="glass-card rounded-3xl p-8 border border-white/10 space-y-4">
-          <div className="space-y-2">
-            <p className="text-sm uppercase tracking-[0.25em] text-slate-300">AGB</p>
-            <h3 className="text-2xl font-bold">Allgemeine Geschäftsbedingungen</h3>
-          </div>
-          <p className="text-slate-200">Die AGB für WeddingBuddy werden derzeit finalisiert. Für Rückfragen oder individuelle Vereinbarungen sende bitte eine E-Mail an harterschnitt@gmail.com.</p>
         </section>
       </main>
 
