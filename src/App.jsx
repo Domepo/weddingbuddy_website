@@ -31,42 +31,32 @@ const galleryFlow = [
 const tabs = [
   {
     name: 'Home (Galerie)',
-    description:
-      'Deine Pose-Bibliothek mit Fortschrittsanzeige, Shuffle, Reorder und Add – optimiert für schnelles Browsen.',
-    highlights: [
-      'Suchfeld + Filterchips + Bulk-Bar bei Mehrfachauswahl',
-      '2-Spalten-Grid mit Favoritenstern & Kategorie-Badges',
-      'Done-Overlay, Drag-Handle im Reorder-Modus',
+    points: [
+      'Header mit Fortschritt (z. B. 5/9 done) und Aktionen: Shuffle, Reorder, Add.',
+      'Suchfeld, Filterchips und Bulk-Bar bei Mehrfachauswahl.',
+      '2-Spalten-Gitter mit Thumbnails, Favoritenstern, Kategorien-Badge und Done-Overlay.',
     ],
   },
   {
     name: 'Camera (Overlay)',
-    description:
-      'Fullscreen-Kamera mit Pose-Overlay, das du spiegeln, drehen oder per Swipe in der Opazität anpassen kannst.',
-    highlights: [
-      'Swipe-Navigation links/rechts + Previous/Next Buttons',
-      'Overlay-Card für Notizen & Kamera-Settings',
-      'Wetter-Widget: Temperatur, Sunrise/Sunset, Golden Hour',
+    points: [
+      'Fullscreen-Kamera mit wischbarer Pose-Navigation (links/rechts).',
+      'Overlay-Card für Notizen & Kamera-Settings, Grid und Mirror-Buttons.',
+      'Wetter-Widget mit Temperatur, Sunrise/Sunset und Golden Hour.',
     ],
   },
   {
     name: 'Tools',
-    description:
-      'Praktische Helfer für den Shooting-Tag – vom Gear-Check bis zur Timeline, damit nichts vergessen wird.',
-    highlights: [
-      'Batterie-, Gear- und Timeline-Übersichten',
-      'Kleine Utilities, die den Ablauf strukturieren',
-      'Kontextbezogene Shortcuts für den Workflow',
+    points: [
+      'Batterie-, Gear- und Timeline-Helfer für stressfreie Shootings.',
+      'Sammlung kleiner Utilities, die den Shooting-Tag vorbereiten.',
     ],
   },
   {
     name: 'Settings',
-    description:
-      'Feineinstellungen für Look & Feel sowie Datensicherheit – alles, was die App persönlich macht.',
-    highlights: [
-      'Theme: Light/Dark, Overlay-Opacity & Kamera-Defaults',
-      'Sprache EN/DE, Archiv- und Daten-Reset-Optionen',
-      'Wetter-Widget & Grid als Standard speichern',
+    points: [
+      'Theme (Light/Dark), Overlay-Opacity, Kamera-Defaults (Zoom, Grid, Weather).',
+      'Sprache EN/DE, Daten-Reset, Archiv-Verwaltung.',
     ],
   },
 ];
@@ -297,17 +287,11 @@ function App() {
                   <span className="h-10 w-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-lg">✨</span>
                   <h4 className="text-xl font-semibold">{tab.name}</h4>
                 </div>
-                <p className="text-slate-200 leading-relaxed">{tab.description}</p>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {tab.highlights.map((point) => (
-                    <div
-                      key={point}
-                      className="rounded-2xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-slate-100 shadow-inner"
-                    >
-                      {point}
-                    </div>
+                <ul className="space-y-3 text-slate-200 list-disc list-inside">
+                  {tab.points.map((point) => (
+                    <li key={point}>{point}</li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
           </div>
